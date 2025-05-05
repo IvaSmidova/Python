@@ -40,21 +40,22 @@ index_attacker_comm = headline.index("attacker_commander")
 
 attacker_commanders_win = list()
 attacker_commanders_loss = list()
+count_wins = 0
+count_loss = 0
 
 for battle in rows:
     if battle[index_attacker_outcome] == "win":
         if battle[index_attacker_size] > battle[index_defender_size]:
+            count_wins += 1
             commander = battle[index_attacker_comm].split(", ")
             for com in commander:
                 attacker_commanders_win.append(com)
     if battle[index_attacker_outcome] == "loss":
         if battle[index_attacker_size] < battle[index_defender_size]:
+            count_loss +=1
             commander = battle[index_attacker_comm].split(", ")
             for com in commander:
                 attacker_commanders_loss.append(com)
-
-count_wins = len(attacker_commanders_win)
-count_loss = len(attacker_commanders_loss)
 
 print(attacker_commanders_win)
 print(count_wins)
