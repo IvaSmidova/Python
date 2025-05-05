@@ -44,10 +44,14 @@ attacker_commanders_loss = list()
 for battle in rows:
     if battle[index_attacker_outcome] == "win":
         if battle[index_attacker_size] > battle[index_defender_size]:
-            attacker_commanders_win.append(battle[index_attacker_comm])
+            commander = battle[index_attacker_comm].split(", ")
+            for com in commander:
+                attacker_commanders_win.append(com)
     if battle[index_attacker_outcome] == "loss":
         if battle[index_attacker_size] < battle[index_defender_size]:
-            attacker_commanders_loss.append(battle[index_attacker_comm])
+            commander = battle[index_attacker_comm].split(", ")
+            for com in commander:
+                attacker_commanders_loss.append(com)
 
 count_wins = len(attacker_commanders_win)
 count_loss = len(attacker_commanders_loss)
